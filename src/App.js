@@ -1,25 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Inicial from './components/TelaInicial';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+class App extends React.Component {
+  state = {
+    telaAtual: "inicial",
+  }
+
+  // Renderização condicional de telas
+  mudaTela = () => {
+    switch(this.state.telaAtual) {
+      case "inicial":
+        return <Inicial
+          botaoCadastro={this.mudaTelaCadastro}
+          botaoServicos={this.mudaTelaServicos}
+        />
+      case "cadastro":
+        return <p>Tela de Cadastro</p> //Alterar aqui quando a tela estiver pronta
+      case "servicos":
+        return <p>Tela de Serviços</p> //Alterar aqui quando a tela estiver pronta
+      case "carrinho":
+        return <p>Tela do Carrinho</p> //Alterar aqui quando a tela estiver pronta
+      case "detalhes":
+        return <p>Tela de Detalhes</p> //Alterar aqui quando a tela estiver pronta
+      default:
+        return <Inicial
+          botaoCadastro={this.mudaTelaCadastro}
+          botaoServicos={this.mudaTelaServicos}
+        />
+    }
+  }
+  // Funções de mudança de tela (para serem passadas no onClick dos botões)
+  mudaTelaInicial = () => {
+    this.setState({telaAtual: "inicial"})
+  }
+  mudaTelaCadastro = () => {
+    this.setState({telaAtual: "cadastro"})
+  }
+  mudaTelaServicos = () => {
+    this.setState({telaAtual: "servicos"})
+  }
+  mudaTelaCarrinho = () => {
+    this.setState({telaAtual: "carrinho"})
+  }
+  mudaTelaDetalhes = () => {
+    this.setState({telaAtual: "detalhes"})
+  }
+
+  render() {
+    return <div> {/* Alterar para um Container */}
+      <header>Header</header> {/* Alterar aqui quando o Header estiver pronto */}
+
+      {this.mudaTela()} 
+
     </div>
-  );
+  }
 }
 
 export default App;
