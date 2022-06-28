@@ -1,5 +1,6 @@
 import React from 'react';
 import Inicial from './components/TelaInicial';
+import CardServicos from './components/CardServicos';
 
 
 class App extends React.Component {
@@ -18,7 +19,7 @@ class App extends React.Component {
       case "cadastro":
         return <p>Tela de Cadastro</p> //Alterar aqui quando a tela estiver pronta
       case "servicos":
-        return <p>Tela de Serviços</p> //Alterar aqui quando a tela estiver pronta
+        return  <CardServicos/> //Alterar aqui quando a tela estiver pronta
       case "carrinho":
         return <p>Tela do Carrinho</p> //Alterar aqui quando a tela estiver pronta
       case "detalhes":
