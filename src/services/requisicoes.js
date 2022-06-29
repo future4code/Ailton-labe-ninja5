@@ -5,7 +5,7 @@ import { url_base } from "../constants/url_base";
 export const getAllJobs = (funcao) => {
     axios.get(`${url_base}/jobs`, {
         headers: {
-            Authorization: 'e2190c39-7930-4db4-870b-bed0e5e4b88e'
+            Authorization: '8edd7464-7802-4bcd-a411-fdf55999ce37'
         }
     }).then((response) => {
         funcao(response.data.jobs)
