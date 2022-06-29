@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 export default class TelaCadastro extends Component {
 
@@ -18,7 +19,7 @@ export default class TelaCadastro extends Component {
         this.setState({inputDescrição: e.target.value})
     }
     onchangePreço = (e) => {
-        this.setState({inputPreço: e.target.value})
+        this.setState({inputPreço:(e.target.value)})
     }
     onchangePagamento = (e) => {
     const novoPagamento = [...this.state.inputPagamento]
@@ -29,14 +30,36 @@ export default class TelaCadastro extends Component {
     this.setState({inputData: e.target.value})
     }
 
+    addServiço = () =>{
+      const body = {
+        title:this.state.inputTitulo,
+        description: this.state.inputDescrição,
+        price:Number(this.state.inputPreço),
+        paymentMethods:this.state.inputPagamento,
+        dueDate:this.state.inputData
+    }
+    
+    axios.post('https://labeninjas.herokuapp.com/jobs',body,{
+      headers:{
+        Authorization: "8edd7464-7802-4bcd-a411-fdf55999ce37"
+      }
+    })
+    .then((res)=>{
+      alert("Usuário Cadastrado")
+    })
+    .catch((err)=>{
+      alert(`Erro! tente novamente`)
+    })
+    }
 
   render() {
+  
     return (
       <div>
         <h2>Cadastre o seu serviço</h2>
         <input onChange={this.onchangeTitulo} value={this.state.inputTitulo} type={'text'} placeholder="Título"></input>
         <input onChange={this.onchangeDescrição} value={this.state.inputDescrição}  type={'text'} placeholder="Descrição do Produto"></input>
-        <input onChange={this.onchangePreço} value={this.state.inputPreço}  type={'number'} min="0" placeholder="Preço"></input>
+        <input onChange={this.onchangePreço} value={this.state.inputPreço}  type={'number'}  placeholder="Preço"></input>
 
         <form onChange={this.onchangePagamento} value={this.state.inputPagamento} >
         <input type="radio" id='credito' value="credito"></input>
@@ -51,7 +74,7 @@ export default class TelaCadastro extends Component {
         
         <input onChange={this.onchangeData} value={this.state.inputData}  type={'date'} ></input>
        
-        <button>Cadastrar</button>
+        <button onClick={this.addServiço}>Cadastrar</button>
 
       </div>
     )
