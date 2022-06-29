@@ -1,5 +1,6 @@
 import React from 'react';
 import Inicial from './components/TelaInicial';
+import TelaCadastro from './components/TelaCadastro';
 
 
 class App extends React.Component {
@@ -16,7 +17,7 @@ class App extends React.Component {
           botaoServicos={this.mudaTelaServicos}
         />
       case "cadastro":
-        return <p>Tela de Cadastro</p> //Alterar aqui quando a tela estiver pronta
+        return <TelaCadastro/> //Alterar aqui quando a tela estiver pronta
       case "servicos":
         return <p>Tela de Serviços</p> //Alterar aqui quando a tela estiver pronta
       case "carrinho":
@@ -50,7 +51,7 @@ class App extends React.Component {
   render() {
     return <div> {/* Alterar para um Container */}
       <header>Header</header> {/* Alterar aqui quando o Header estiver pronto */}
-
+ 
       {this.mudaTela()} 
 
     </div>
