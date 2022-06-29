@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {url_base} from "../constants/url_base"
 
 export default class TelaCadastro extends Component {
 
@@ -39,16 +40,16 @@ export default class TelaCadastro extends Component {
         dueDate:this.state.inputData
     }
     
-    axios.post('https://labeninjas.herokuapp.com/jobs',body,{
+    axios.post(`${url_base}/jobs`,body,{
       headers:{
         Authorization: "8edd7464-7802-4bcd-a411-fdf55999ce37"
       }
     })
-    .then((res)=>{
-      alert("Usuário Cadastrado")
+    .then((response)=>{
+      console.log(response)
     })
-    .catch((err)=>{
-      alert(`Erro! tente novamente`)
+    .catch((error)=>{
+      console.log(error)
     })
     }
 

@@ -42,11 +42,27 @@ margin-top:50px
 
 
 export default class CardServicos extends React.Component{
+    state={
+        filtroValorMin:"",
+        filtroValorMax:"",
+        filtroBuscarNome:"",
+
+    }
+
+    onChangeBuscarNome = (e) => {
+        this.setState({filtroBuscarNome: e.target.event})
+    }
 
     render(){
 
         return(
-
+            <div>
+            <div>
+            <input placeholder="Valor mín"></input>
+            <input placeholder="Valor máx"></input>
+            <input onChange={this.onChangeBuscarNome} value={this.state.filtroBuscarNome}  placeholder="Buscar..."></input>
+            </div>
+          
             <ContainerCard>
                 <TituloCard>Abraços quentinhos</TituloCard>
                 <p>Preço: R$ 5.00</p>
@@ -58,9 +74,8 @@ export default class CardServicos extends React.Component{
                 
                 
                 </ButtonCard>
-
             </ContainerCard>
-
+            </div>
         )
     }
 }
