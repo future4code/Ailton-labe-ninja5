@@ -17,7 +17,13 @@ class App extends React.Component {
   componentDidMount () {
     getAllJobs(this.salvarServicos)
   }
-  // componentDidUpdate () {}
+  componentDidUpdate (prevState) {
+    if(this.state.listaServicos !== prevState.listaServicos){
+      getAllJobs(this.salvarServicos)
+    
+    } 
+
+  }
 
   // Função para salvar array de serviços no estado
   salvarServicos = (dados) => {
@@ -35,7 +41,7 @@ class App extends React.Component {
       case "cadastro":
         return <TelaCadastro/>
       case "servicos":
-        return  <CardServicos/>
+        return  <CardServicos listaServicos={this.state.listaServicos}/>
       case "carrinho":
         return <p>Tela do Carrinho</p> //Alterar aqui quando a tela estiver pronta
       case "detalhes":
@@ -65,6 +71,7 @@ class App extends React.Component {
   }
 
   render() {
+  
     return <div> {/* Alterar para um Container */}
     
       <Header />

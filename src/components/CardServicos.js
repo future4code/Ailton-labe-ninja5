@@ -2,16 +2,21 @@ import React from "react"
 import styled from "styled-components"
 
 
+const Container = styled.div`
+display:flex;
+flex-wrap: wrap;
 
+
+`
 const ContainerCard = styled.div`
 display:flex;
 flex-direction:column;
 border:1px solid #ed6c2b94;
-height:200px;
-width:200px;
+height:250px;
+width:250px;
 background-color: #ed6c2b94;
 border-radius:10px;
-margin: 0 5px;
+margin: 0 15px;
 
 >p{
 
@@ -53,20 +58,20 @@ export default class CardServicos extends React.Component{
         this.setState({filtroBuscarNome: e.target.event})
     }
 
+
+
+
+
     render(){
 
-        return(
-            <div>
-            <div>
-            <input placeholder="Valor mín"></input>
-            <input placeholder="Valor máx"></input>
-            <input onChange={this.onChangeBuscarNome} value={this.state.filtroBuscarNome}  placeholder="Buscar..."></input>
-            </div>
-          
-            <ContainerCard>
-                <TituloCard>Abraços quentinhos</TituloCard>
-                <p>Preço: R$ 5.00</p>
-                <p>Prazo: Imediato</p>
+        const pegarListaServicos = this.props.listaServicos.map((servicos)=>{
+            return (
+                
+                
+                <ContainerCard key={servicos.id}>
+                <TituloCard> {servicos.title }</TituloCard>
+                <p>Preço: {servicos.price}</p>
+                <p>Prazo: {servicos.dueDate}</p>
                 <ButtonCard> 
                 
                 <button> Ver detalhes</button>
@@ -75,7 +80,25 @@ export default class CardServicos extends React.Component{
                 
                 </ButtonCard>
             </ContainerCard>
+            )
+            
+            
+        })
+
+        return(
+            <Container>
+
+            <div>
+            <input placeholder="Valor mín"></input>
+            <input placeholder="Valor máx"></input>
+            <input onChange={this.onChangeBuscarNome} value={this.state.filtroBuscarNome}  placeholder="Buscar..."></input>
             </div>
+          
+          
+            {pegarListaServicos}
+
+         
+            </Container>
         )
     }
 }
