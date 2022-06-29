@@ -45,11 +45,12 @@ export default class TelaCadastro extends Component {
         Authorization: "8edd7464-7802-4bcd-a411-fdf55999ce37"
       }
     })
-    .then((response)=>{
-      console.log(response)
+    .then(()=>{
+     alert("Serviço cadastrado com sucesso!!")
     })
-    .catch((error)=>{
-      console.log(error)
+    .catch(()=>{
+      alert("Tente novamente!!")
+      
     })
     }
 
