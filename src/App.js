@@ -54,7 +54,7 @@ class App extends React.Component {
   render() {
     return <div> {/* Alterar para um Container */}
 
-      <header>Header</header> {/* Alterar aqui quando o Header estiver pronto */}
+      <Header>Header</Header> {/* Alterar aqui quando o Header estiver pronto */}
 
       {this.mudaTela()} 
 
