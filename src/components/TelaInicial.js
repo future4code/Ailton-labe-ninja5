@@ -7,7 +7,7 @@ display: flex;
 align-items: center;
 justify-content: center;
  height: 60vh;
- width: 30vw;
+ width: auto;
 `
 const ContainerInicial = styled.div`
     display: flex;

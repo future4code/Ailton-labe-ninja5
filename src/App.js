@@ -3,12 +3,25 @@ import Inicial from './components/TelaInicial';
 import TelaCadastro from './components/TelaCadastro';
 import CardServicos from './components/CardServicos';
 import Header from './components/Header';
+import { getAllJobs } from './services/requisicoes'
 
 
 
 class App extends React.Component {
   state = {
     telaAtual: "inicial",
+    listaServicos: [],
+  }
+
+  // Funções ciclo de vida
+  componentDidMount () {
+    getAllJobs(this.salvarServicos)
+  }
+  // componentDidUpdate () {}
+
+  // Função para salvar array de serviços no estado
+  salvarServicos = (dados) => {
+    this.setState({listaServicos: dados})
   }
 
   // Renderização condicional de telas
@@ -20,9 +33,9 @@ class App extends React.Component {
           botaoServicos={this.mudaTelaServicos}
         />
       case "cadastro":
-        return <TelaCadastro/> //Alterar aqui quando a tela estiver pronta
+        return <TelaCadastro/>
       case "servicos":
-        return  <CardServicos/> //Alterar aqui quando a tela estiver pronta
+        return  <CardServicos/>
       case "carrinho":
         return <p>Tela do Carrinho</p> //Alterar aqui quando a tela estiver pronta
       case "detalhes":
@@ -53,8 +66,8 @@ class App extends React.Component {
 
   render() {
     return <div> {/* Alterar para um Container */}
-
-      <Header>Header</Header> {/* Alterar aqui quando o Header estiver pronto */}
+    
+      <Header />
 
       {this.mudaTela()} 
 
