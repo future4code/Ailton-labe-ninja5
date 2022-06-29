@@ -4,7 +4,7 @@ import TelaCadastro from './components/TelaCadastro';
 import CardServicos from './components/CardServicos';
 import Header from './components/Header';
 import { getAllJobs } from './services/requisicoes'
-
+import GlobalStyle from './styles/global'
 
 
 class App extends React.Component {
@@ -67,10 +67,12 @@ class App extends React.Component {
   render() {
     return <div> {/* Alterar para um Container */}
     
-      <Header />
+      <Header mudaTelaInicial = {this.mudaTelaInicial}
+      mudaTelaCarrinho = {this.mudaTelaCarrinho}
+      />
 
       {this.mudaTela()} 
-
+      <GlobalStyle/>
     </div>
   }
 }
