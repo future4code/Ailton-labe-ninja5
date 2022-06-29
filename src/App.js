@@ -1,6 +1,8 @@
 import React from 'react';
 import Inicial from './components/TelaInicial';
 import TelaCadastro from './components/TelaCadastro';
+import Header from './components/Header';
+
 
 
 class App extends React.Component {
@@ -50,8 +52,9 @@ class App extends React.Component {
 
   render() {
     return <div> {/* Alterar para um Container */}
+
       <header>Header</header> {/* Alterar aqui quando o Header estiver pronto */}
- 
+
       {this.mudaTela()} 
 
     </div>
