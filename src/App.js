@@ -5,6 +5,7 @@ import CardServicos from './components/CardServicos';
 import Header from './components/Header';
 import { getAllJobs } from './services/requisicoes'
 import GlobalStyle from './styles/global'
+import DetalhesCard from './components/DetalhesCard';
 
 
 class App extends React.Component {
@@ -45,7 +46,7 @@ class App extends React.Component {
       case "carrinho":
         return <p>Tela do Carrinho</p> //Alterar aqui quando a tela estiver pronta
       case "detalhes":
-        return <p>Tela de Detalhes</p> //Alterar aqui quando a tela estiver pronta
+        return <DetalhesCard/> //Alterar aqui quando a tela estiver pronta
       default:
         return <Inicial
           botaoCadastro={this.mudaTelaCadastro}
