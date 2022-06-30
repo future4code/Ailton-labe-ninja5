@@ -6,6 +6,7 @@ import Header from './components/Header';
 import { getAllJobs } from './services/requisicoes'
 import GlobalStyle from './styles/global'
 import DetalhesCard from './components/DetalhesCard';
+import CardCarrinho from './components/CardCarrinho';
 
 
 class App extends React.Component {
@@ -13,6 +14,7 @@ class App extends React.Component {
     telaAtual: "inicial",
     listaServicos: [],
     idServicoEscolhido: "",
+    carrinho:[],
   }
 
   // Funções ciclo de vida
@@ -46,7 +48,7 @@ class App extends React.Component {
           botaoTelaDetalhes={this.mudaTelaDetalhes}
         />
       case "carrinho":
-        return <p>Tela do Carrinho</p> //Alterar aqui quando a tela estiver pronta
+        return <CardCarrinho carrinho={this.state.carrinho}  /> //Alterar aqui quando a tela estiver pronta
       case "detalhes":
         return <DetalhesCard id={this.state.idServicoEscolhido}/>
       default:

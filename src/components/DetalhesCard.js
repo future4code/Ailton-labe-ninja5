@@ -34,7 +34,7 @@ export default class DetalhesCard extends React.Component {
 
   componentDidMount() {
     getJobById(this.props.id, this.salvarDetalhes);
-  }
+  };
 
   salvarDetalhes = (id) => {
     this.setState({
@@ -42,6 +42,7 @@ export default class DetalhesCard extends React.Component {
     });
   };
   render() {
+
     return (
       <Container>
         <Card>
@@ -62,5 +63,21 @@ export default class DetalhesCard extends React.Component {
         </Card>
       </Container>
     );
+
+  
+   const detalhePagemento = this.state.detalhes.paymentMethods && this.state.detalhes.paymentMethods.map((servico)=>{
+    return <p key={servico}>{servico}</p>
+
+   });
+    return <div>
+
+        <p>{this.state.detalhes.title}</p>
+        <p>{this.state.detalhes.description}</p>
+        <p>{this.state.detalhes.price}</p>
+        <p>{new Date(this.state.detalhes.dueDate).toLocaleDateString()}</p>
+       {detalhePagemento}
+        </div>
+   
+
   }
-}
+} 
