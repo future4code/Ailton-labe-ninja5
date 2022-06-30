@@ -42,16 +42,13 @@ margin-top:50px
 
 `
 
-
-
-
-
 export default class CardServicos extends React.Component{
     state={
         filtroBuscarNome:"",
         filtroValorMax:"",
         filtroValorMin:"",
-        ordenar:"title"
+        ordenar:"title",
+        produtosNoCarrinho:[],
 
     }
 
@@ -67,7 +64,13 @@ export default class CardServicos extends React.Component{
     onChangeOrdenacao = (e) =>{
         this.setState({ordenar:e.target.value})
     }
-
+    
+    addServicoCarrinho = (servico) =>{
+     const novoServico = [...this.state.produtosNoCarrinho];
+     novoServico.push(servico);
+    this.setState({produtosNoCarrinho:novoServico});
+    alert("Serviço adicionado ao carrinho")
+}
 
     render(){
 
@@ -108,7 +111,7 @@ export default class CardServicos extends React.Component{
                 <ButtonCard> 
                 
                 <button onClick={() => this.props.botaoTelaDetalhes(servicos.id)}>Ver detalhes</button>
-                <button>🛒</button>
+                <button onClick={()=>this.addServicoCarrinho(servicos)}>🛒</button>
                 
                 </ButtonCard>
             </ContainerCard>
