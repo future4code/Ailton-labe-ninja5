@@ -59,9 +59,6 @@ export default class CardServicos extends React.Component{
     }
 
 
-
-
-
     render(){
 
         const pegarListaServicos = this.props.listaServicos.map((servicos)=>{
@@ -71,7 +68,7 @@ export default class CardServicos extends React.Component{
                 <ContainerCard key={servicos.id}>
                 <TituloCard> {servicos.title }</TituloCard>
                 <p>Preço: {servicos.price}</p>
-                <p>Prazo: {servicos.dueDate}</p>
+                <p>Prazo: {servicos.dueDate.split("T")[0]}</p>
                 <ButtonCard> 
                 
                 <button> Ver detalhes</button>
@@ -82,7 +79,7 @@ export default class CardServicos extends React.Component{
             </ContainerCard>
             )
             
-            
+           
         })
 
         return(
