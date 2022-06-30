@@ -21,13 +21,21 @@ const ButtonsInicial = styled.div`
     gap: 2vw;
 `
 
+const ButtonWanna = styled.button`
+    background-color: #ed6c2b;
+    border: 1px solid #ed6c2b;
+    border-radius: 5px;
+    height: 48px;
+    font-weight: bold;
+`
+
 export default function Inicial (props) {
 
     return <ContainerInicial>
           <Imagem src={Ninja} alt="logo"/>
         <ButtonsInicial> 
-        <button onClick={props.botaoCadastro}>QUERO SER UM NINJA</button>
-        <button onClick={props.botaoServicos}>CONTRATAR UM NINJA</button>
+        <ButtonWanna onClick={props.botaoCadastro}>QUERO SER UM NINJA</ButtonWanna>
+        <ButtonWanna onClick={props.botaoServicos}>CONTRATAR UM NINJA</ButtonWanna>
         </ButtonsInicial>
          
         
