@@ -48,7 +48,7 @@ class App extends React.Component {
       case "carrinho":
         return <p>Tela do Carrinho</p> //Alterar aqui quando a tela estiver pronta
       case "detalhes":
-        return <DetalhesCard />
+        return <DetalhesCard id={this.state.idServicoEscolhido}/>
       default:
         return <Inicial
           botaoCadastro={this.mudaTelaCadastro}
