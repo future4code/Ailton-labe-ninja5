@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import Inicial from './components/TelaInicial';
 import TelaCadastro from './components/TelaCadastro';
 import CardServicos from './components/CardServicos';
@@ -7,6 +8,9 @@ import { getAllJobs } from './services/requisicoes'
 import GlobalStyle from './styles/global'
 import DetalhesCard from './components/DetalhesCard';
 
+const ContainerTela = styled.div`
+
+`
 
 class App extends React.Component {
   state = {
@@ -74,15 +78,15 @@ class App extends React.Component {
   }
 
   render() {
-    return <div> {/* Alterar para um Container */}
+    return <ContainerTela> {/* Alterar para um Container */}
     
       <Header mudaTelaInicial = {this.mudaTelaInicial}
       mudaTelaCarrinho = {this.mudaTelaCarrinho}
       />
 
       {this.mudaTela()} 
-      <GlobalStyle/>
-    </div>
+      {/* <GlobalStyle/> */}
+    </ContainerTela>
   }
 }
 
