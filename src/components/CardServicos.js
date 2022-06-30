@@ -48,22 +48,58 @@ margin-top:50px
 
 export default class CardServicos extends React.Component{
     state={
-        filtroValorMin:"",
-        filtroValorMax:"",
         filtroBuscarNome:"",
+        filtroValorMax:"",
+        filtroValorMin:"",
+        ordenar:"title"
 
     }
 
-    onChangeBuscarNome = (e) => {
-        this.setState({filtroBuscarNome: e.target.event})
+    onChangePesquisa = (e) =>{
+        this.setState({filtroBuscarNome:e.target.value})
+    }
+    onChangeValorMin = (e) =>{
+        this.setState({filtroValorMin:e.target.value})
+    }
+    onChangeValorMax = (e) =>{
+        this.setState({filtroValorMax:e.target.value})
+    }
+    onChangeOrdenacao = (e) =>{
+        this.setState({ordenar:e.target.value})
     }
 
 
     render(){
 
-        const pegarListaServicos = this.props.listaServicos.map((servicos)=>{
+        const pegarListaServicos = this.props.listaServicos
+        //Filtro para buscar por nome
+        .filter((servicos)=>{
+            return servicos.title.toLowerCase().includes(this.state.filtroBuscarNome.toLowerCase())
+        })
+        //Filtro para buscar por Valor Mínimo
+        .filter((servicos)=>{
+            return this.state.filtroValorMin === "" || servicos.price >= this.state.filtroValorMin
+        })
+        //Filtro para buscar por Valor Máximo
+        .filter((servicos)=>{
+            return this.state.filtroValorMax === "" || servicos.price <= this.state.filtroValorMax
+        })
+        //Ordenações
+        .sort((currentJob,nextJob)=>{
+            switch (this.state.ordenar){
+            case "title":
+                return currentJob.title.localeCompare(nextJob.title)
+            
+            case "dueDate":
+            return new Date(currentJob.dueDate).getTime() - new Date(nextJob.dueDate).getTime()
+            default:
+            return   currentJob.price - nextJob.price 
+            }
+           
+        })
+        .map((servicos)=>{
+
             return (
-                
                 
                 <ContainerCard key={servicos.id}>
                 <TituloCard> {servicos.title }</TituloCard>
@@ -73,7 +109,6 @@ export default class CardServicos extends React.Component{
                 
                 <button> Ver detalhes</button>
                 <button>🛒</button>
-                
                 
                 </ButtonCard>
             </ContainerCard>
@@ -86,10 +121,26 @@ export default class CardServicos extends React.Component{
             <Container>
 
             <div>
-            <input placeholder="Valor mín"></input>
-            <input placeholder="Valor máx"></input>
-            <input onChange={this.onChangeBuscarNome} value={this.state.filtroBuscarNome}  placeholder="Buscar..."></input>
+
+            <input value={this.state.filtroBuscarNome} onChange={this.onChangePesquisa} placeholder="Pesquisa"></input>
+            <input type="number" value={this.state.filtroValorMin} onChange={this.onChangeValorMin} placeholder="Preço mínimo"></input>
+            <input type="number" value={this.state.filtroValorMax} onChange={this.onChangeValorMax} placeholder="Preço máximo"></input>
+
             </div>
+
+            <span>
+
+            <label form="sort">Ordenação</label>
+
+            <select name="sort" value={this.state.ordenar} onChange={this.onChangeOrdenacao}>
+
+            <option value="title">Título</option>
+            <option value="price">Preço</option>
+            <option value="dueDate">Prazo</option>
+
+            </select>
+
+            </span>
           
           
             {pegarListaServicos}
