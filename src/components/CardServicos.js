@@ -71,7 +71,7 @@ export default class CardServicos extends React.Component{
                 <p>Prazo: {servicos.dueDate.split("T")[0]}</p>
                 <ButtonCard> 
                 
-                <button> Ver detalhes</button>
+                <button > Ver detalhes</button>
                 <button>🛒</button>
                 
                 
