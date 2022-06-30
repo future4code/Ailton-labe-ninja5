@@ -4,12 +4,12 @@ import styled from 'styled-components'
 export default class CardCarrinho extends Component {
 
 
-  receberCarrinho = (this.props.) =>{
-    this.setState
-  }
+  // receberCarrinho = (this.props.) =>{
+  //   this.setState
+  // }
   
   render() {
-    const novoCarrinho = 
+    // const novoCarrinho = 
     return (
       <div>CardCarrinho</div>
     )
