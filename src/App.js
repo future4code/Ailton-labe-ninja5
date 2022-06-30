@@ -12,6 +12,7 @@ class App extends React.Component {
   state = {
     telaAtual: "inicial",
     listaServicos: [],
+    idServicoEscolhido: "",
   }
 
   // Funções ciclo de vida
@@ -20,10 +21,8 @@ class App extends React.Component {
   }
   componentDidUpdate (prevState) {
     if(this.state.listaServicos !== prevState.listaServicos){
-      getAllJobs(this.salvarServicos)
-    
+      getAllJobs(this.salvarServicos)  
     } 
-
   }
 
   // Função para salvar array de serviços no estado
@@ -42,11 +41,14 @@ class App extends React.Component {
       case "cadastro":
         return <TelaCadastro/>
       case "servicos":
-        return  <CardServicos listaServicos={this.state.listaServicos}/>
+        return  <CardServicos
+          listaServicos={this.state.listaServicos}
+          botaoTelaDetalhes={this.mudaTelaDetalhes}
+        />
       case "carrinho":
         return <p>Tela do Carrinho</p> //Alterar aqui quando a tela estiver pronta
       case "detalhes":
-        return <DetalhesCard/> //Alterar aqui quando a tela estiver pronta
+        return <DetalhesCard />
       default:
         return <Inicial
           botaoCadastro={this.mudaTelaCadastro}
@@ -67,12 +69,11 @@ class App extends React.Component {
   mudaTelaCarrinho = () => {
     this.setState({telaAtual: "carrinho"})
   }
-  mudaTelaDetalhes = () => {
-    this.setState({telaAtual: "detalhes"})
+  mudaTelaDetalhes = (id) => {
+    this.setState({telaAtual: "detalhes", idServicoEscolhido: id})
   }
 
   render() {
-  
     return <div> {/* Alterar para um Container */}
     
       <Header mudaTelaInicial = {this.mudaTelaInicial}
