@@ -105,7 +105,7 @@ this.setState({valorTotal: this.state.valorTotal - servico})
           />
         ); //Alterar aqui quando a tela estiver pronta
       case "detalhes":
-        return <DetalhesCard id={this.state.idServicoEscolhido} />;
+        return <DetalhesCard id={this.state.idServicoEscolhido} mudaTelaServicos={this.mudaTelaServicos}/>;
       default:
         return (
           <Inicial

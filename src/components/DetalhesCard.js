@@ -56,6 +56,7 @@ export default class DetalhesCard extends React.Component {
         <p><b>Prazo:</b>{new Date(this.state.detalhes.dueDate).toLocaleDateString()}</p>
         <p><b>Forma de pagamento: </b>
        {detalhePagemento}</p>
+       <button onClick={this.props.mudaTelaServicos}>Voltar para Lista de Servicos</button>
         </Card>
         </Container>
    
