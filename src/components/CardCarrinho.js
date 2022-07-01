@@ -5,10 +5,6 @@ import Itens from './Itens'
 export default class CardCarrinho extends Component {
 
 
-  // receberCarrinho = (this.props.) =>{
-  //   this.setState
-  // }
-  
   render() {
    const itensCarrinho = this.props.carrinho && this.props.carrinho.map((servicos)=>{
     return    <Itens
