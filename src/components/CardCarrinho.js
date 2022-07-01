@@ -19,6 +19,7 @@ export default class CardCarrinho extends Component {
     <h2>Carrinho</h2>
     {itensCarrinho}
       <p>Valor total: R${this.props.valorTotal},00</p>
+      <button onClick={()=>alert("Compra finalizada com sucesso.")}>Finalizar Compra</button>
       </div>
     )
   }
