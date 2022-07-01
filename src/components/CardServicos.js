@@ -13,21 +13,24 @@ const ContainerCard = styled.div`
   width: 250px;
   background-color: #ed6c2b94;
   border-radius: 10px;
+  justify-content: space-between;
+  padding: 10px;
 
   > p {
-    margin: 0 5px;
+    margin-top: 10px;
     text-align: center;
   }
 `;
 const TituloCard = styled.h3`
   color: black;
   text-align: center;
+  margin-bottom: 5px;
 `;
 const BotoesNovos = styled.div`
   display: flex;
   margin: 0 5px;
   justify-content: space-between;
-  margin-top: 100px;
+  margin-top: 10px;
 `;
 
 const Novosbotoes = styled.button`
