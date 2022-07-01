@@ -30,6 +30,28 @@ const ButtonCard = styled.div`
   margin-top: 50px;
 `
 
+const MiniContainer = styled.div`
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+`
+
+const FiltroContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    color: #ed6c2b;
+>input{
+    color: #ed6c2b;
+    border: 1px solid #ed6c2b;
+}    
+`
+
 export default class CardServicos extends React.Component{
     state={
         filtroBuscarNome:"",
@@ -105,6 +127,7 @@ export default class CardServicos extends React.Component{
         return(
             <Container>
 
+            <FiltroContainer>
             <div>
 
             <input value={this.state.filtroBuscarNome} onChange={this.onChangePesquisa} placeholder="Pesquisa"></input>
@@ -126,9 +149,10 @@ export default class CardServicos extends React.Component{
             </select>
 
             </span>
+            </FiltroContainer>
           
           
-            {pegarListaServicos}
+            <MiniContainer>{pegarListaServicos}</MiniContainer>
 
          
             </Container>

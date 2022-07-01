@@ -7,14 +7,14 @@ import styled from 'styled-components';
 const ContainerBig = styled.div`
   border: 1px solid #ed6c2b;
   margin-top: 4%;
-  margin-left: 25%;
+  margin-left: 20%;
   margin-right: 25%;
   padding-left: 15%;
   padding-right: 15%;
   text-align: center;
   display: inline-block;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 
   >h2 {
     text-align: center;
@@ -37,6 +37,16 @@ const ContainerBig = styled.div`
     padding: 16px;
   };
 
+  >button{
+    background-color: #ed6c2b;
+    border: 1px solid #ed6c2b;
+    border-radius: 5px;
+    height: 48px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 150px;
+    };
 `
 
 export default class TelaCadastro extends Component {
