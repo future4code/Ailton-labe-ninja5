@@ -42,7 +42,7 @@ export default class DetalhesCard extends React.Component {
     });
   };
   render() {
-
+    const data = this.state.detalhes.dueDate && this.state.detalhes.dueDate.split("T")[0]
    const detalhePagemento = this.state.detalhes.paymentMethods && this.state.detalhes.paymentMethods.map((servico)=>{
     return <li key={servico}>{servico}</li>
 
@@ -53,7 +53,7 @@ export default class DetalhesCard extends React.Component {
         <h2>{this.state.detalhes.title}</h2>
         <p><b>Descrição:</b>{this.state.detalhes.description}</p>
         <p><b>Valor: R$</b>{this.state.detalhes.price},00</p>
-        <p><b>Prazo:</b>{new Date(this.state.detalhes.dueDate).toLocaleDateString()}</p>
+        <p><b>Prazo:</b>{data}</p>
         <p><b>Forma de pagamento: </b>
        {detalhePagemento}</p>
        <button onClick={this.props.mudaTelaServicos}>Voltar para Lista de Servicos</button>

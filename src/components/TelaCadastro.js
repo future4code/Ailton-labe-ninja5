@@ -57,6 +57,8 @@ export default class TelaCadastro extends Component {
         inputPreço:"",
         inputPagamento:[],
         inputData:"",
+       
+       
     }
 
 
@@ -72,11 +74,13 @@ export default class TelaCadastro extends Component {
     onchangePagamento = (e) => {
     const novoPagamento = [...this.state.inputPagamento]
     novoPagamento.push(e.target.value)
-    this.setState({inputPagamento: novoPagamento})
+    this.setState({inputPagamento: novoPagamento}) 
     }
     onchangeData = (e) => {
     this.setState({inputData: e.target.value})
     }
+
+
 
     addServiço = () =>{
       const body = {
@@ -99,6 +103,15 @@ export default class TelaCadastro extends Component {
       alert("Tente novamente!!")
       
     })
+    this.setState({inputTitulo:""})
+    this.setState({inputDescrição:""})
+    this.setState({inputPreço:""})
+    this.setState({inputPagamento:[]})
+    document.getElementById('credito').checked = false
+    document.getElementById('debito').checked = false
+    document.getElementById('pix').checked = false
+    document.getElementById('boleto').checked = false
+    this.setState({inputData:""})
     }
 
   render() {
@@ -112,13 +125,13 @@ export default class TelaCadastro extends Component {
         <input onChange={this.onchangePreço} value={this.state.inputPreço}  type={'number'}  placeholder="Preço"></input>
 
         <form onChange={this.onchangePagamento} value={this.state.inputPagamento} >
-        <input type="radio" id='credito' value="credito"></input>
+        <input type="checkbox" id='credito' value="credito"></input>
         <label for="credito">Cartão de Crédito</label>
-        <input type="radio" id='debito' value="debito"></input>
+        <input type="checkbox" id='debito' value="debito"></input>
         <label for="debito">Cartão de Débito</label>
-        <input type="radio" id='pix' value="pix"></input>
+        <input type="checkbox" id='pix' value="pix"></input>
         <label for="pix">Pix</label>
-        <input type="radio" id='boleto' value="boleto"></input>
+        <input type="checkbox" id='boleto' value="boleto"></input>
         <label for="boleto">Boleto</label>
         </form>
           

@@ -76,6 +76,12 @@ this.setState({valorTotal: this.state.valorTotal + servico})
 this.setState({valorTotal: this.state.valorTotal - servico})
   }
 
+  compraFinalizada = () =>{
+    alert("Compra realizada com sucesso")
+    this.setState({carrinho:""})
+    this.setState({valorTotal:0})
+  }
+
   // Renderização condicional de telas
   mudaTela = () => {
     switch (this.state.telaAtual) {
@@ -102,6 +108,7 @@ this.setState({valorTotal: this.state.valorTotal - servico})
             valorTotal={this.state.valorTotal}
             carrinho={this.state.carrinho}
             removerItenCarrinho={this.removerItenCarrinho}
+            onClick={this.compraFinalizada}
           />
         ); //Alterar aqui quando a tela estiver pronta
       case "detalhes":
