@@ -100,6 +100,7 @@ this.setState({valorTotal: this.state.valorTotal - servico})
             listaServicos={this.state.listaServicos}
             botaoTelaDetalhes={this.mudaTelaDetalhes}
             addProduto={this.addServicoCarrinho}
+            
           />
         );
       case "carrinho":

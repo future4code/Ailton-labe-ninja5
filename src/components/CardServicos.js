@@ -23,13 +23,28 @@ const TituloCard = styled.h3`
   color: black;
   text-align: center;
 `;
-const ButtonCard = styled.div`
+const BotoesNovos = styled.div`
   display: flex;
   margin: 0 5px;
   justify-content: space-between;
   margin-top: 100px;
 `;
 
+const Novosbotoes = styled.button`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px;
+
+  :hover {
+    webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    background-color: #ed6c2b;
+    cursor: pointer;
+  }
+`;
 const MiniContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -38,13 +53,13 @@ const MiniContainer = styled.div`
 `;
 
 const Filtro = styled.div`
-display: flex;
-gap: 10px;
-> input {
+  display: flex;
+  gap: 10px;
+  > input {
     color: #ed6c2b;
     border: 1px solid #ed6c2b;
-  };
-`
+  }
+`;
 
 const FiltroContainer = styled.div`
   display: flex;
@@ -60,8 +75,8 @@ const FiltroContainer = styled.div`
 `;
 
 const Ordenacao = styled.select`
-    border: 1px solid #ed6c2b;
-`
+  border: 1px solid #ed6c2b;
+`;
 
 export default class CardServicos extends React.Component {
   state = {
@@ -127,14 +142,16 @@ export default class CardServicos extends React.Component {
             <TituloCard> {servicos.title}</TituloCard>
             <p>Preço: {servicos.price}</p>
             <p>Prazo: {servicos.dueDate.split("T")[0]}</p>
-            <ButtonCard>
-              <button onClick={() => this.props.botaoTelaDetalhes(servicos.id)}>
+            <BotoesNovos>
+              <Novosbotoes
+                onClick={() => this.props.botaoTelaDetalhes(servicos.id)}
+              >
                 Ver detalhes
-              </button>
-              <button onClick={() => this.props.addProduto(servicos)}>
+              </Novosbotoes>
+              <Novosbotoes onClick={() => this.props.addProduto(servicos)}>
                 🛒
-              </button>
-            </ButtonCard>
+              </Novosbotoes>
+            </BotoesNovos>
           </ContainerCard>
         );
       });
