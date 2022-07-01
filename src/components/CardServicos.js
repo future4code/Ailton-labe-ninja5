@@ -37,21 +37,31 @@ const MiniContainer = styled.div`
   justify-content: center;
 `;
 
+const Filtro = styled.div`
+display: flex;
+gap: 10px;
+> input {
+    color: #ed6c2b;
+    border: 1px solid #ed6c2b;
+  };
+`
+
 const FiltroContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin-left: 25%;
   margin-right: 25%;
   margin-top: 4%;
   margin-bottom: 4%;
   color: #ed6c2b;
-  > input {
-    color: #ed6c2b;
-    border: 1px solid #ed6c2b;
-  }
+  gap: 10px;
 `;
+
+const Ordenacao = styled.select`
+    border: 1px solid #ed6c2b;
+`
 
 export default class CardServicos extends React.Component {
   state = {
@@ -132,7 +142,7 @@ export default class CardServicos extends React.Component {
     return (
       <Container>
         <FiltroContainer>
-          <div>
+          <Filtro>
             <input
               value={this.state.filtroBuscarNome}
               onChange={this.onChangePesquisa}
@@ -150,12 +160,12 @@ export default class CardServicos extends React.Component {
               onChange={this.onChangeValorMax}
               placeholder="Preço máximo"
             ></input>
-          </div>
+          </Filtro>
 
           <span>
             <label form="sort">Ordenação</label>
 
-            <select
+            <Ordenacao
               name="sort"
               value={this.state.ordenar}
               onChange={this.onChangeOrdenacao}
@@ -163,7 +173,7 @@ export default class CardServicos extends React.Component {
               <option value="title">Título</option>
               <option value="price">Preço</option>
               <option value="dueDate">Prazo</option>
-            </select>
+            </Ordenacao>
           </span>
         </FiltroContainer>
 
