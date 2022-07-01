@@ -43,40 +43,21 @@ export default class DetalhesCard extends React.Component {
   };
   render() {
 
-    return (
-      <Container>
-        <Card>
-          <h2>{this.state.detalhes.title}</h2>
-          <p>
-            <b>Descrição:</b> {this.state.detalhes.description}
-          </p>
-          <p>
-            <b>Valor: R$</b> {this.state.detalhes.price},00
-          </p>
-          <p>
-            <b>Prazo:</b> {this.state.detalhes.dueDate}
-          </p>
-          <p>
-            <b>Forma de pagamento: </b>
-            {this.state.detalhes.paymentMethods}
-          </p>
-        </Card>
-      </Container>
-    );
-
-  
    const detalhePagemento = this.state.detalhes.paymentMethods && this.state.detalhes.paymentMethods.map((servico)=>{
-    return <p key={servico}>{servico}</p>
+    return <li key={servico}>{servico}</li>
 
    });
-    return <div>
+    return <Container>
+    <Card>
 
-        <p>{this.state.detalhes.title}</p>
-        <p>{this.state.detalhes.description}</p>
-        <p>{this.state.detalhes.price}</p>
-        <p>{new Date(this.state.detalhes.dueDate).toLocaleDateString()}</p>
-       {detalhePagemento}
-        </div>
+        <h2>{this.state.detalhes.title}</h2>
+        <p><b>Descrição:</b>{this.state.detalhes.description}</p>
+        <p><b>Valor: R$</b>{this.state.detalhes.price},00</p>
+        <p><b>Prazo:</b>{new Date(this.state.detalhes.dueDate).toLocaleDateString()}</p>
+        <p><b>Forma de pagamento: </b>
+       {detalhePagemento}</p>
+        </Card>
+        </Container>
    
 
   }
