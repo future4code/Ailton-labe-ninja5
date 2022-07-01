@@ -61,7 +61,7 @@ export default class CardCarrinho extends Component {
         {itensCarrinho}
         <p>Valor total: R${this.props.valorTotal},00</p>
 
-        <BotaoCarrinho onClick={() => alert("Compra finalizada com sucesso.")}>
+        <BotaoCarrinho onClick={this.props.onClick}>
           Finalizar Compra
         </BotaoCarrinho>
       </ContainerCarrinho>
