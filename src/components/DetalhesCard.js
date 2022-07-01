@@ -27,6 +27,22 @@ const Card = styled.div`
   }
 `;
 
+const BotoesLindos = styled.button`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 5px;
+
+  :hover {
+    webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    background-color: #ed6c2b;
+    cursor: pointer;
+  }
+`;
+
 export default class DetalhesCard extends React.Component {
   state = {
     detalhes: [],
@@ -34,7 +50,7 @@ export default class DetalhesCard extends React.Component {
 
   componentDidMount() {
     getJobById(this.props.id, this.salvarDetalhes);
-  };
+  }
 
   salvarDetalhes = (id) => {
     this.setState({
@@ -42,24 +58,36 @@ export default class DetalhesCard extends React.Component {
     });
   };
   render() {
-
-   const detalhePagemento = this.state.detalhes.paymentMethods && this.state.detalhes.paymentMethods.map((servico)=>{
-    return <li key={servico}>{servico}</li>
-
-   });
-    return <Container>
-    <Card>
-
-        <h2>{this.state.detalhes.title}</h2>
-        <p><b>Descrição:</b>{this.state.detalhes.description}</p>
-        <p><b>Valor: R$</b>{this.state.detalhes.price},00</p>
-        <p><b>Prazo:</b>{new Date(this.state.detalhes.dueDate).toLocaleDateString()}</p>
-        <p><b>Forma de pagamento: </b>
-       {detalhePagemento}</p>
-       <button onClick={this.props.mudaTelaServicos}>Voltar para Lista de Servicos</button>
+    const detalhePagemento =
+      this.state.detalhes.paymentMethods &&
+      this.state.detalhes.paymentMethods.map((servico) => {
+        return <li key={servico}>{servico}</li>;
+      });
+    return (
+      <Container>
+        <Card>
+          <h2>{this.state.detalhes.title}</h2>
+          <p>
+            <b>Descrição:</b>
+            {this.state.detalhes.description}
+          </p>
+          <p>
+            <b>Valor: R$</b>
+            {this.state.detalhes.price},00
+          </p>
+          <p>
+            <b>Prazo:</b>
+            {new Date(this.state.detalhes.dueDate).toLocaleDateString()}
+          </p>
+          <p>
+            <b>Forma de pagamento: </b>
+            {detalhePagemento}
+          </p>
+          <BotoesLindos onClick={this.props.mudaTelaServicos}>
+            Voltar para Lista de Servicos
+          </BotoesLindos>
         </Card>
-        </Container>
-   
-
+      </Container>
+    );
   }
-} 
+}
