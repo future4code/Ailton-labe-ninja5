@@ -9,7 +9,7 @@ const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
     background-color: #ed6c2b;
-    height: 10vh;
+    height: 64px;
     justify-content: space-between;
 `
 const ButtonHeader = styled.div`
