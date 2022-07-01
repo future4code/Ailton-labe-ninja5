@@ -1,3 +1,4 @@
+import { hover } from '@testing-library/user-event/dist/hover'
 import React from 'react'
 import styled from 'styled-components'
 import Ninja from './img/Ninja.png'
@@ -22,6 +23,14 @@ const Imagem = styled.img`
     height: 10vh;
 `
 
+const ButtonHomeCart = styled.button`
+    background-color: #ed6c2b;
+    border: none;
+    color: black;
+    font-weight: bold;   
+`
+
+
 
 export default function Header (props) {
   return (
@@ -29,8 +38,8 @@ export default function Header (props) {
          <Imagem src={Ninja} alt="logo"/>
         <h1> LABENINJAS</h1>
         <ButtonHeader>
-             <button onClick={props.mudaTelaInicial}> HOME</button>
-             <button onClick={props.mudaTelaCarrinho}>CARRINHO</button>
+             <ButtonHomeCart onClick={props.mudaTelaInicial}> HOME</ButtonHomeCart>
+             <ButtonHomeCart onClick={props.mudaTelaCarrinho}>🛒</ButtonHomeCart>
         </ButtonHeader>
     </HeaderContainer>
   )

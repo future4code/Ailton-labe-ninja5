@@ -1,6 +1,43 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {url_base} from "../constants/url_base"
+import styled from 'styled-components';
+
+
+const ContainerBig = styled.div`
+  border: 1px solid #ed6c2b;
+  margin-top: 4%;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding-left: 15%;
+  padding-right: 15%;
+  text-align: center;
+  display: inline-block;
+  align-items: center;
+  justify-content: space-evenly;
+
+  >h2 {
+    text-align: center;
+    color: #ed6c2b;
+  };
+
+  >label {
+    display: block;
+    border: 1px solid #ed6c2b;
+    text-align: center;
+    color: #ed6c2b;
+  };
+
+  >input {
+    display: block;
+    border: 1px solid #ed6c2b;
+    text-align: center;
+    color: #ed6c2b;
+    width: 400px;
+    padding: 16px;
+  };
+
+`
 
 export default class TelaCadastro extends Component {
 
@@ -57,7 +94,8 @@ export default class TelaCadastro extends Component {
   render() {
   
     return (
-      <div>
+      <ContainerBig>
+
         <h2>Cadastre o seu serviço</h2>
         <input onChange={this.onchangeTitulo} value={this.state.inputTitulo} type={'text'} placeholder="Título"></input>
         <input onChange={this.onchangeDescrição} value={this.state.inputDescrição}  type={'text'} placeholder="Descrição do Produto"></input>
@@ -73,12 +111,11 @@ export default class TelaCadastro extends Component {
         <input type="radio" id='boleto' value="boleto"></input>
         <label for="boleto">Boleto</label>
         </form>
-        
+          
         <input onChange={this.onchangeData} value={this.state.inputData}  type={'date'} ></input>
-       
+        
         <button onClick={this.addServiço}>Cadastrar</button>
-
-      </div>
+      </ContainerBig>
     )
   }
 }
