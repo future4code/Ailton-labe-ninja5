@@ -23,12 +23,28 @@ class App extends React.Component {
   // Funções ciclo de vida
   componentDidMount() {
     getAllJobs(this.salvarServicos);
+
+    const carrinhoLocal = JSON.parse(localStorage.getItem("Carrinho"))
+		if (carrinhoLocal) {
+			this.setState({ carrinho: carrinhoLocal })
+		}
+      const valorLocal = JSON.parse(localStorage.getItem("ValorTotal"))
+		if (valorLocal) {
+			this.setState({ valorTotal: valorLocal })
+  }
   }
   componentDidUpdate(prevState) {
     if (this.state.listaServicos !== prevState.listaServicos) {
       getAllJobs(this.salvarServicos);
+	};
+    const valorString = JSON.stringify(this.state.valorTotal)
+		localStorage.setItem("ValorTotal", valorString);
+
+    const carrinhoString = JSON.stringify(this.state.carrinho)
+		localStorage.setItem("Carrinho", carrinhoString)
     }
-  }
+
+  
 
   // Função para salvar array de serviços no estado
   salvarServicos = (dados) => {
