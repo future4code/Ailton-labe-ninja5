@@ -47,6 +47,13 @@ const ContainerBig = styled.div`
     margin-bottom: 10px;
     width: 150px;
     };
+    >button:hover{
+      cursor: pointer;
+      webkit-transform: scale(0.9);
+      transform: scale(0.9);
+      background-color: black;
+      color: white;
+    }
 `
 
 export default class TelaCadastro extends Component {
@@ -121,7 +128,7 @@ export default class TelaCadastro extends Component {
 
         <h2>Cadastre o seu serviço</h2>
         <input onChange={this.onchangeTitulo} value={this.state.inputTitulo} type={'text'} placeholder="Título"></input>
-        <input onChange={this.onchangeDescrição} value={this.state.inputDescrição}  type={'text'} placeholder="Descrição do Produto"></input>
+        <input onChange={this.onchangeDescrição} value={this.state.inputDescrição}  type={'text'} placeholder="Descrição do Serviço"></input>
         <input onChange={this.onchangePreço} value={this.state.inputPreço}  type={'number'}  placeholder="Preço"></input>
 
         <form onChange={this.onchangePagamento} value={this.state.inputPagamento} >
