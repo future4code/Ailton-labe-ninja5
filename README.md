@@ -47,8 +47,8 @@ Tela do Carrinho:
 <https://yielding-distance.surge.sh/>
 
 ### Imagens
-![](../labeninjas_home.png)
-![](../labeninjas_cadastro.png)
-![](../labeninjas_servicos.png)
-![](../labeninjas_detalhes.png)
-![](../labeninjas_carrinho.png)
+![](./Readme_img/labeninjas_home.png)
+![](./Readme_img/labeninjas_cadastro.png)
+![](../Readme_img/labeninjas_servicos.png)
+![](./Readme_img/labeninjas_detalhes.png)
+![](./Readme_img/labeninjas_carrinho.png)
