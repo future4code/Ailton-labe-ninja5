@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+## Projeto LabeNinjas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Descrição
+Plataforma Marketplace para a LabeNinjas, startup fictícia destinada à busca e oferta de prestações de serviço. Os prestadores podem cadastrar seus serviços livremente, enquanto as pessoas com demandas específicas podem encontrar perfis bem alinhados ao que precisam.
 
-## Available Scripts
+### Membros
+- Daniela Klem de Castro Pinheiro
+- Ebele Adaobi Silva
+- Fernanda Tiyomi
+- Maria Caroline Pereira Silva
+- Patrick de Melo Ferraz
 
-In the project directory, you can run:
+### Funcionalidades
+Todas as telas:
+- Header com ícone, título, e botão de carrinho;
+- Título (LabeNinjas) redirecionando para a tela inicial;
+- Botão redirecionando para a tela do carrinho;
+- Design responsivo para diferentes tamanhos de tela.
 
-### `npm start`
+Home (Tela inicial):
+- Botão redirecionando para tela de cadastrar serviços;
+- Botão redirecionando para tela de lista dos serviços já cadastrados.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Tela de Cadastro:
+- Inputs que recebem título, descrição e preço do serviço inseridos pelo usuário;
+- Botões tipo checkbox das opções de pagamento para serem escolhidas pelo usuário;
+- Input que recebe a data inserida pelo usuário. A data pode ser digitada ou selecionada no calendário;
+- Botão para cadastrar serviço, ao ser clicado cria um novo serviço utilizando todos os dados inseridos pelo usuário e limpa todos os inputs.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Tela de Serviços:
+- Lista de cards contendo título, preço e prazo dos serviços cadastrados, e botões para ver detalhes e adicionar o serviço ao carrinho;
+- Opção de ordenação crescente dos serviços por título, preço ou prazo;
+- Opção de filtrar serviços por valores mínimo e máximo;
+- Opção de buscar serviços pelo título inserido pelo usuário na caixa de texto.
 
-### `npm test`
+Tela de Detalhes:
+- Card contendo título, descrição, preço, prazo e formas de pagamento do serviço escolhido;
+- Botao para retornar à tela de lista de serviços.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Tela do Carrinho:
+- Card contendo título e preço dos serviços adicionados, e botão para remover o serviço do carrinho;
+- Valor total de todos os serviços adicionados;
+- Botão para finalizar a compra, ao ser clicado emite uma mensagem de "Compra finalizada com sucesso." ao usuário e apaga os serviços do carrinho;
+- Serviços adicionados ao carrinho permanecem mesmo quando a página é atualizada.
 
-### `npm run build`
+### Link Surge
+<https://yielding-distance.surge.sh/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Imagens
+![](../labeninjas_home.png)
+![](../labeninjas_cadastro.png)
+![](../labeninjas_servicos.png)
+![](../labeninjas_detalhes.png)
+![](../labeninjas_carrinho.png)
