@@ -5,11 +5,15 @@ import TelaCadastro from "./components/TelaCadastro";
 import CardServicos from "./components/CardServicos";
 import Header from "./components/Header";
 import { getAllJobs } from "./services/requisicoes";
-import GlobalStyle from "./styles/global";
 import DetalhesCard from "./components/DetalhesCard";
 import CardCarrinho from "./components/CardCarrinho";
 
-const ContainerTela = styled.div``;
+const ContainerPrincipal = styled.main`
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100vw;
+`;
 
 class App extends React.Component {
   state = {
@@ -42,7 +46,7 @@ class App extends React.Component {
 
     const carrinhoString = JSON.stringify(this.state.carrinho)
 		localStorage.setItem("Carrinho", carrinhoString)
-    }
+  }
 
   
 
@@ -70,10 +74,10 @@ class App extends React.Component {
   };
 
   adicionarValorTotal = (servico) =>{
-this.setState({valorTotal: this.state.valorTotal + servico})
+    this.setState({valorTotal: this.state.valorTotal + servico})
   }
   removerValorTotal = (servico) =>{
-this.setState({valorTotal: this.state.valorTotal - servico})
+    this.setState({valorTotal: this.state.valorTotal - servico})
   }
 
   compraFinalizada = () =>{
@@ -111,9 +115,14 @@ this.setState({valorTotal: this.state.valorTotal - servico})
             removerItenCarrinho={this.removerItenCarrinho}
             onClick={this.compraFinalizada}
           />
-        ); //Alterar aqui quando a tela estiver pronta
+        );
       case "detalhes":
-        return <DetalhesCard id={this.state.idServicoEscolhido} mudaTelaServicos={this.mudaTelaServicos}/>;
+        return (
+          <DetalhesCard
+            id={this.state.idServicoEscolhido}
+            mudaTelaServicos={this.mudaTelaServicos}
+          />
+        );
       default:
         return (
           <Inicial
@@ -142,16 +151,13 @@ this.setState({valorTotal: this.state.valorTotal - servico})
 
   render() {
     return (
-      <ContainerTela>
-        {" "}
-        {/* Alterar para um Container */}
+      <>
         <Header
           mudaTelaInicial={this.mudaTelaInicial}
           mudaTelaCarrinho={this.mudaTelaCarrinho}
         />
-        {this.mudaTela()}
-        {/* <GlobalStyle/> */}
-      </ContainerTela>
+        <ContainerPrincipal>{this.mudaTela()}</ContainerPrincipal>
+      </>
     );
   }
 }

@@ -44,7 +44,7 @@ Tela do Carrinho:
 - Serviços adicionados ao carrinho permanecem mesmo quando a página é atualizada.
 
 ### Link Surge
-<https://yielding-distance.surge.sh/>
+<https://near-knee.surge.sh/>
 
 ### Imagens
 ![](./Readme_img/labeninjas_home.png)

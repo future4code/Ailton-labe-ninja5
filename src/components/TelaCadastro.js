@@ -7,12 +7,11 @@ import styled from 'styled-components';
 const ContainerBig = styled.div`
   border: 1px solid #ed6c2b;
   margin-top: 4%;
-  margin-left: 20%;
-  margin-right: 25%;
   padding-left: 15%;
   padding-right: 15%;
   text-align: center;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
 
@@ -33,7 +32,8 @@ const ContainerBig = styled.div`
     border: 1px solid #ed6c2b;
     text-align: center;
     color: #ed6c2b;
-    width: 400px;
+    width: 100%;
+    /* width: 400px; */
     padding: 16px;
   };
 
