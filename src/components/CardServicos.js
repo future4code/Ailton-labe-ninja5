@@ -57,6 +57,8 @@ const MiniContainer = styled.div`
 
 const Filtro = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
   > input {
     color: #ed6c2b;
@@ -67,7 +69,8 @@ const Filtro = styled.div`
 const FiltroContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   margin-left: 25%;
   margin-right: 25%;
